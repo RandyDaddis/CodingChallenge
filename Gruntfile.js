@@ -17,7 +17,8 @@
                 css: ['<%= pkg.app.styles.dest %>', '<%= pkg.app.styles.temp %>'],
                 images: ['<%= pkg.app.images.dest %>'],
                 js: ['<%= pkg.app.scripts.dest %>', '<%= pkg.app.scripts.temp %>'],
-                fonts: ['<%= pkg.app.fonts.dest %>', '<%= pkg.fontawesome.webfonts.dest %>']
+                fonts: ['<%= pkg.app.fonts.dest %>', '<%= pkg.fontawesome.webfonts.dest %>'],
+                temp: ['temp/']
             },
             // concatinate .JS files
             concat: {
@@ -311,6 +312,6 @@
         //
         grunt.registerTask('appJsTasks', ['jsonlint', 'jshint', 'clean:js', 'copy:appJs', 'concat:appJs', 'uglify:appJs']);
         grunt.registerTask('cssTasks', ['clean:css', 'copy:appStyles', 'copy:bootstrapStyles', 'copy:fontawesomeStyles', 'cssmin']);
-        grunt.registerTask('default', ['jsonlint', 'jshint', 'clean', 'copy', 'cssmin', 'concat', 'uglify']); /*, imageEmbed', */ // default: defines a group of tasks that will run when running Grunt without specifying a task to run.
+        grunt.registerTask('default', ['jsonlint', 'jshint', 'clean', 'copy', 'cssmin', 'concat', 'uglify', 'clean:temp']); /*, imageEmbed', */ // default: defines a group of tasks that will run when running Grunt without specifying a task to run.
     };
 })();

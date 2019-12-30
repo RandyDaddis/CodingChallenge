@@ -1,0 +1,38 @@
+﻿<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+        <div class="navbar-brand">
+            Factory<span class="navbar-brand-outlet">Outlet</span>Store.com
+        </div>
+        <div class="navbar-brand-tagline">
+            An Independent Retailer Of Consumer Products
+        </div>
+    </a>
+    <div class="navbar-content">
+        <div class="navbar-free-shipping">
+            <i class="far fa-check-square"></i>
+            <span class="font-weight-700">FREE</span>
+            <span class="navbar-free-shipping-text">SHIPPING</span>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link" asp-area="" asp-controller="FAQ" asp-action="Faq">FAQ</a>
+                </li>
+                <li>
+                    <a class="nav-link" asp-area="" asp-controller="Orders" asp-action="Status">My Order Status</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <partial name="_Login" />
+            </ul>
+        </div>
+        <div class="shopping-card-summary">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="shopping-cart-item-count">0</span>
+            <span>Item(s)</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>

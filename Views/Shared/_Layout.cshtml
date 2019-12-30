@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://fonts.googleapis.com/css?family=Tangerine|BioRhyme" rel="stylesheet">
+    <link href="~/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/css/brands.min.css" rel="stylesheet" />
+    <link href="~/css/regular.min.css" rel="stylesheet" />
+    <link href="~/css/solid.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/gogotech.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="container">
+        <section class="holiday-season-sale-banner">
+            <div id="holidaySeasonSale">Holiday Season Sale</div>
+            <div id="holidaySeasonSaleUpTo75PctOff">Up to 75% off</div>
+            <div class="free-same-day-shipping-banner">
+                <div class="free-same-day-shipping"><span class="color-dark-red ">FREE</span> Same Day Shipping</div>
+                <div class="free-same-day-shipping-limited-time">Limited Time Only!</div>
+            </div>
+        </section>
+        <partial name="_NavTop" />
+        <section class="paypal-row">
+            <div class="paypal-terms-container">
+                <partial name="_PaypalCredit" />
+                <p class="paypal-terms">Pay over 12 months at 0% APR</p>
+                <p>No money due today.</p>
+            </div>
+            <div class="paypal-fine-print">
+                <p>Min purchase required</p>
+                <a href="#">See Terms</a>
+            </div>
+        </section>
+        <section class="header-bottom-row">
+            <div class="garmin-wrapper">
+                <a href="#">
+                    Garmin
+                </a>
+            </div>
+            <div class="search-box">
+                <form class="search-box-form">
+                    <input type="search" class="search-input" placeholder="Search" aria-label="Search" />
+                    <button class="btn-dark-orange search-button" type="submit" data-toggle="button" aria-pressed="false">
+                        <span class="search-button-text">Search</span>
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="order-by-phone">
+                <div class="order-by-phone-column-1">
+                    <i class="fas fa-mobile fa-2x"></i>
+                </div>
+                <div class="order-by-phone-column-2">
+                    <div>24 Hour</div>
+                    <p>
+                        <span class="order-by-phone-text">ORDER BY PHONE</span>
+                        <span class="font-weight-600">(800) 721-1373</span>
+                    </p>
+                    <p class="font-weight-600 text-right">Extension:</p>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main class="main container" role="main" data-role="content">
+        @RenderBody()
+    </main>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/app/gogotech.min.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,126 @@
+{
+  "title": "NPM Configuration File",
+  "name": "gogotech",
+  "description": "NPM Configuration File",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Randy Daddis",
+      "url": ""
+    }
+  ],
+  "copyright": "2016",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-cli": "1.3.2",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-jsonlint": "^2.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "jquery": "^3.4.1",
+    "jquery-validation": "^1.19.1",
+    "jquery-validation-unobtrusive": "^3.2.11"
+  },
+  "SECTION_3rd_PARTY_LIBRARIES": "",
+  "bootstrap": {
+    "dist": {
+      "scripts": {
+        "src": "node_modules/bootstrap/dist/js/",
+        "dest": "wwwroot/js/"
+      },
+      "styles": {
+        "src": "node_modules/bootstrap/dist/css/",
+        "dest": "wwwroot/css/"
+      }
+    }
+  },
+  "bootstrapPlugins": {
+    "dist": {
+      "src": "node_modules/bootstrap/js/dist/",
+      "dest": "wwwroot/js/"
+    },
+    "src": {
+      "src": "node_modules/bootstrap/js/src/",
+      "dest": "wwwroot/js/"
+    }
+  },
+  "fontawesome": {
+    "scripts": {
+      "src": "node_modules/@fortawesome/fontawesome-free/js/",
+      "dest": "wwwroot/js/"
+    },
+    "styles": {
+      "src": "node_modules/@fortawesome/fontawesome-free/css/",
+      "dest": "wwwroot/css/"
+    },
+    "webfonts": {
+      "src": "node_modules/@fortawesome/fontawesome-free/webfonts/",
+      "dest": "wwwroot/webfonts/"
+    }
+  },
+  "jQuery": {
+    "scripts": {
+      "src": "node_modules/jquery/dist/",
+      "dest": "wwwroot/js/"
+    }
+  },
+  "jQueryValidation": {
+    "scripts": {
+      "src": "node_modules/jquery-validation/dist/",
+      "dest": "wwwroot/js/"
+    }
+  },
+  "jQueryValidationUnobtrusive": {
+    "scripts": {
+      "src": "node_modules/jquery-validation-unobtrusive/dist/",
+      "dest": "wwwroot/js/"
+    }
+  },
+  "SECTION_Application": "",
+  "app": {
+    "favIcon": {
+      "src": "content/",
+      "dest": "wwwroot/"
+    },
+    "fonts": {
+      "dest": "wwwroot/fonts/"
+    },
+    "images": {
+      "src": "content/images/",
+      "dest": "wwwroot/images/"
+    },
+    "imageCarousels": {
+      "ic000001": {
+        "src": "content/images/carousels/ic000001/",
+        "dest": "wwwroot/images/carousels/ic000001/"
+      }
+    },
+    "scripts": {
+      "app": "content/js/app/",
+      "src": "content/js/",
+      "dest": "wwwroot/js/",
+      "temp": "temp/js/"
+    },
+    "styles": {
+      "src": "content/css/",
+      "dest": "wwwroot/css/",
+      "temp": "temp/css/"
+    }
+  }
+}

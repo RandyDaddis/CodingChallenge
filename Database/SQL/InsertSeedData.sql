@@ -7,16 +7,16 @@ INSERT INTO [dbo].[Product]
            ,[RetailPrice]
            ,[SalePrice])
      VALUES
-           ('<h1 class="h5">Garmin vivofit jr. 2 Stretchy BB-8</h1>
-                    <h2 class="h6 font-weight-700 color-blue">Kids Activity Tracker</h2>
+           ('<h1 class="font-size-x-large color-black">Garmin vivofit jr. 2 Stretchy BB-8</h1>
+                    <h2 class="font-weight-600 color-blue">Kids Activity Tracker</h2>
                     <p>Includes One Year Manufacturer''s Warranty</p>
-                    <div class="item-return-policy">
-                        <span class="returnable">Returnable:</span>
+                    <div class="item-return-policy bg-color-grey-x-light">
+                        <span class="color-red-muted">Returnable:</span>
                         <span class="guarantee">30 Day Guarantee</span>
-                        <span class="badge badge-pill rounded-pill background-color-orange color-white"><i class="fas fa-info"></i></span>
+                        <span class="badge badge-pill rounded-pill bg-color-orange color-white"><i class="fas fa-info"></i></span>
                     </div>
                     <ul class="features">
-                        <li><h3>Kids Fitness Band</h3></li>
+                        <li><h2 class="font-weight-600 color-black">Kids Fitness Band</h2></li>
                         <li>
                             Long Battery Life
                             <ul><li>Up to 1 Year</li></ul>

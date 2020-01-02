@@ -10,7 +10,7 @@
     <link href="~/css/regular.min.css" rel="stylesheet" />
     <link href="~/css/solid.min.css" rel="stylesheet" />
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/gogotech.min.css" rel="stylesheet" />
+    <link href="~/css/site.min.css" rel="stylesheet" />
 </head>
 <body>
     <header class="container">
@@ -23,7 +23,7 @@
             </div>
         </section>
         <partial name="_NavTop" />
-        <section class="paypal-row">
+        <section class="paypal-row color-paypal-light-blue">
             <div class="paypal-terms-container">
                 <partial name="_PaypalCredit" />
                 <p class="paypal-terms">Pay over 12 months at 0% APR</p>
@@ -35,28 +35,28 @@
             </div>
         </section>
         <section class="header-bottom-row">
-            <div class="garmin-wrapper">
-                <a href="#">
+            <div class="garmin-wrapper font-size-x-large font-weight-600">
+                <a class="color-black text-decoration-none" href="#">
                     Garmin
                 </a>
             </div>
             <div class="search-box">
                 <form class="search-box-form">
                     <input type="search" class="search-input" placeholder="Search" aria-label="Search" />
-                    <button class="btn-dark-orange search-button" type="submit" data-toggle="button" aria-pressed="false">
+                    <button class="btn-dark-orange-gradient color-white search-button" type="submit" data-toggle="button" aria-pressed="false">
                         <span class="search-button-text">Search</span>
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
             </div>
-            <div class="order-by-phone">
+            <div class="order-by-phone color-grey">
                 <div class="order-by-phone-column-1">
                     <i class="fas fa-mobile fa-2x"></i>
                 </div>
                 <div class="order-by-phone-column-2">
                     <div>24 Hour</div>
                     <p>
-                        <span class="order-by-phone-text">ORDER BY PHONE</span>
+                        <span class="color-black font-weight-700">ORDER BY PHONE</span>
                         <span class="font-weight-600">(800) 721-1373</span>
                     </p>
                     <p class="font-weight-600 text-right">Extension:</p>
@@ -70,7 +70,7 @@
     <script src="~/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/app/gogotech.min.js" asp-append-version="true"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -12,13 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Content\js\site.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="Content\css\site.css" />
     <Content Include="Content\favicon.ico" />
-    <Content Include="Content\js\app\site.js">
+    <Content Include="Content\js\site.js">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

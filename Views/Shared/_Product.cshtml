@@ -1,6 +1,6 @@
 ﻿@model ProductDto 
-<section class="content-section">
-    <header class="content-section-header">
+<section class="content-section color-grey">
+    <header class="content-section-header bg-color-grey-x-light">
         <div class="items-per-page-wrapper">
             <span>Items Per Page:</span>
             <span class="items-per-page">12</span>
@@ -17,14 +17,16 @@
     </header>
     <section class="item-section">
         <section class="image-column">
-            <header class="current-image">
-                <img alt="current image" />
-            </header>
+            @*<header>*@
+                <img class="current-image"
+                        alt="current image"
+                        src="/images/Garmin-vivofit-jr.-2-Stretchy-BB-8-R-Gallery-img3_160x.jpg" />
+            @*</header>*@
             <div class="image-carousel">
-                <img class="image" alt="image" />
-                <img class="image" alt="image" />
-                <img class="image" alt="image" />
-                <img class="image" alt="image" />
+                <img class="img-thumbnail" src="~/images/Garmin-vivofit-jr.-2-Stretchy-BB-8-R-vivofit-Jr-2-Fitness-Watch-img3_2622e370-55d5-406b-bcbb-5a4902b42e57_160x.jpg" />
+                <img class="img-thumbnail" src="~/images/Garmin-vivofit-jr.-2-Stretchy-BB-8-R-Gallery-img16_160x.jpg" />
+                <img class="img-thumbnail" src="~/images/Garmin-vivofit-jr.-2-Stretchy-BB-8-R-Gallery-img17_160x.jpg" />
+                <img class="img-thumbnail" src="~/images/Garmin-vivofit-jr.-2-Stretchy-BB-8-R-Gallery-img18_160x.jpg" />
             </div>
             <footer class="image-column-footer">
                 <i class="fas fa-search"></i>
@@ -40,15 +42,15 @@
                     <div class="popup-header">Added to Cart</div>
                     <div class="popup-body">Thank you</div>
                     <div class="popup-close-button-container">
-                        <button onclick="togglePopup()" class="btn btn-dark-orange" data-toggle="button" aria-pressed="false">Close</button>
+                        <button onclick="togglePopup()" class="btn btn-dark-orange-gradient" data-toggle="button" aria-pressed="false">Close</button>
                     </div>
                 </div>
             </aside>
             <div>
                 <a href="#">More Details</a>
-                <div class="item-availability">
+                <div class="color-black font-weight-600">
                     <span>Availability:</span>
-                    <span class="in-stock">
+                    <span class="color-green">
                         @if (Model.QuantityInStock > 0)
                         {
                             <i class="fas fa-check"></i>
@@ -62,13 +64,13 @@
                 </div>
             </div>
             <div>
-                <i class="fas fa-box-open"></i>
-                <span class="item-ships-free">Ships Free</span>
+                <i class="fas fa-box-open color-dark-orange"></i>
+                <span class="color-black font-weight-600">Ships Free</span>
             </div>
             <div>
-                <p class="retail-price">$@Model.RetailPrice</p>
-                <p class="sale-price">$@Model.SalePrice</p>
-                <button onclick="onAddtoCart()" type="button" class="btn btn-dark-orange" data-toggle="button" aria-pressed="false">
+                <p class="text-decoration-line-through">$@Model.RetailPrice</p>
+                <p class="color-green font-weight-600">$@Model.SalePrice</p>
+                <button onclick="onAddtoCart()" type="button" class="btn btn-dark-orange-gradient" data-toggle="button" aria-pressed="false">
                     <i class="fas fa-shopping-cart"></i><span class="shopping-cart-button-text">Add to Cart</span>
                 </button>
                 <section class="paypal-column">

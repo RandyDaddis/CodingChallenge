@@ -14,11 +14,11 @@
                 '*** License: <%= _.pluck(pkg.licenses, "type").join(", ") %>\n' +
                 '*/\n\n',
             clean: {
-                css: ['<%= pkg.app.styles.dest %>', '<%= pkg.app.styles.temp %>'],
+                css: ['<%= pkg.app.styles.dest %>', '<%= pkg.app.styles.tempdirectory %>'],
                 images: ['<%= pkg.app.images.dest %>'],
-                js: ['<%= pkg.app.scripts.dest %>', '<%= pkg.app.scripts.temp %>'],
+                js: ['<%= pkg.app.scripts.dest %>', '<%= pkg.app.scripts.tempdirectory %>'],
                 fonts: ['<%= pkg.app.fonts.dest %>', '<%= pkg.fontawesome.webfonts.dest %>'],
-                temp: ['temp/']
+                tempdirectory: ['<%= pkg.app.tempdirectory %>']
             },
             // concatinate .JS files
             concat: {
@@ -35,7 +35,7 @@
                 //
                 appJs: {
                     files: [
-                        { src: '<%= pkg.app.scripts.src %>**/*.js', dest: '<%= pkg.app.scripts.temp %><%= pkg.name %>.js' }
+                        { src: '<%= pkg.app.scripts.src %>**/*.js', dest: '<%= pkg.app.scripts.tempdirectory %><%= pkg.app.scripts.filename %>.js' }
                     ]
                 }
             },
@@ -50,7 +50,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.app.styles.src %>', // DEVNOTE: copy source files to destination for debugging purposes only
-                        src: ['**/*.*'],
+                        src: ['**/*.min.*'],
                         dest: '<%= pkg.app.styles.dest %>',
                         filter: 'isFile'
                     }]
@@ -59,26 +59,16 @@
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.app.scripts.src %>', // DEVNOTE: copy source files to destination for debugging purposes only
-                        src: ['**/*.*'],
+                        src: ['**/*.min.*'],
                         dest: '<%= pkg.app.scripts.dest %>',
                         filter: 'isFile'
                     }]
                 },
-                //bootstrapPlugins_Scripts: {
-                // DEVNOTE: use for individual script files as opposed to all-encompassing script file
-                //    files: [{
-                //        expand: true,
-                //        cwd: '<%= pkg.bootstrapPlugins.dist.src %>',
-                //        src: ['tab.*'],
-                //        dest: '<%= pkg.bootstrapPlugins.dist.dest %>',
-                //        filter: 'isFile'
-                //    }]
-                //},
                 bootstrapScripts: {
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.bootstrap.dist.scripts.src %>',
-                        src: ['*.*'],
+                        src: ['*.min.*'],
                         dest: '<%= pkg.bootstrap.dist.scripts.dest %>',
                         filter: 'isFile'
                     }]
@@ -87,7 +77,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.bootstrap.dist.styles.src %>',
-                        src: ['*.*'],
+                        src: ['*.min.*'],
                         dest: '<%= pkg.bootstrap.dist.styles.dest %>',
                         filter: 'isFile'
                     }]
@@ -101,20 +91,11 @@
                         filter: 'isFile'
                     }]
                 },
-                //fontawesomeScripts: {
-                //    files: [{
-                //        expand: true,
-                //        cwd: '<%= pkg.fontawesome.scripts.src %>',
-                //        src: ['*.*'],
-                //        dest: '<%= pkg.fontawesome.scripts.dest %>',
-                //        filter: 'isFile'
-                //    }]
-                //},
                 fontawesomeStyles: {
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.fontawesome.styles.src %>',
-                        src: ['fontawesome.*', 'brands.*', 'regular.*', 'solid.*'],
+                        src: ['fontawesome.min.css', 'brands.min.css', 'regular.min.css', 'solid.min.css'],
                         dest: '<%= pkg.fontawesome.styles.dest %>',
                         filter: 'isFile'
                     }]
@@ -123,20 +104,11 @@
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.app.images.src %>',
-                        src: ['*.*'],
+                        src: ['**/*.*'],
                         dest: '<%= pkg.app.images.dest %>',
                         filter: 'isFile'
                     }]
                 },
-                //imageCarousels_ic0000001: {
-                //    files: [{
-                //        expand: true,
-                //        cwd: '<%= pkg.app.imageCarousels.ic0000001.src %>',
-                //        src: ['*.*'],
-                //        dest: '<%= pkg.app.imageCarousels.ic0000001.dest %>',
-                //        filter: 'isFile'
-                //    }]
-                //},
                 jQuery: {
                     files: [{
                         expand: true,
@@ -150,7 +122,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.jQueryValidation.scripts.src %>',
-                        src: ['*.*'],
+                        src: ['**/*.*'],
                         dest: '<%= pkg.jQueryValidation.scripts.dest %>',
                         filter: 'isFile'
                     }]
@@ -159,7 +131,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= pkg.jQueryValidationUnobtrusive.scripts.src %>',
-                        src: ['*.*'],
+                        src: ['*.min.*'],
                         dest: '<%= pkg.jQueryValidationUnobtrusive.scripts.dest %>',
                         filter: 'isFile'
                     }]
@@ -178,46 +150,19 @@
                             expand: true,
                             cwd: '<%= pkg.app.styles.src %>',
                             src: ['**/*.css', '!**/*.min.css'],
-                            dest: '<%= pkg.app.styles.temp %>',
+                            dest: '<%= pkg.app.styles.tempdirectory %>',
                             ext: '.min.css',
                             filter: 'isFile'
                         }
-                        // {
-                        //    expand: true,
-                        //    cwd: '<%= pkg.bootstrap.styles.src %>',
-                        //    src: ['bootstrap.css', 'bootstrap-theme.css'],
-                        //    dest: '<%= pkg.bootstrap.styles.dest %>',
-                        //    ext: '.min.css',
-                        //    filter: 'isFile'
-                        //}, 
                     ]
                 },
                 // Step 2 - combine minified files and write to destination directory
                 combine: {
                     files: [
-                        { src: '<%= pkg.app.styles.temp %>*.min.css', dest: '<%= pkg.app.styles.dest %><%= pkg.name %>.min.css' }
+                        { src: '<%= pkg.app.styles.tempdirectory %>*.min.css', dest: '<%= pkg.app.styles.dest %><%= pkg.app.styles.filename %>.min.css' }
                     ]
                 }
             },
-            // convert images into base64 encoded data URI strings
-            imageEmbed: {
-                images: {
-                    files: [{
-                        expand: true,
-                        cwd: '<%= pkg.app.images.src %>',
-                        src: ['*.png', '*.jpg', '*.gif', '*.ico'],
-                        dest: '<%= pkg.app.images.dest %>'
-                    }]
-                }
-            },
-            //// test suite
-            //jasmine: {
-            //    src: [],
-            //    options: {
-            //        vendor: [],
-            //        specs: ''
-            //    }
-            //},
             // hint JS files
             jshint: {
                 options: {
@@ -228,21 +173,8 @@
                 },
                 gruntfile: 'Gruntfile.js',
                 appJs: {
-                    src: '<%= pkg.app.scripts.src %>/**/*.js'
+                    src: '<%= pkg.app.scripts.src %>**/*.js'
                 }
-                //bootstrap: {
-                //    src: '<%= pkg.bootstrap.dist.scripts.src %>*.js'
-                //},
-                //jQuery: {
-                //    src: '<%= pkg.jQuery.scripts.src %>*.js'
-                //},
-                //jQueryValidation: {
-                //    src: '<%= pkg.jQueryValidation.scripts.src %>*.js'
-                //},
-                //jQueryValidationUnobtrusive: {
-                //    src: '<%= pkg.jQueryValidationUnobtrusive.scripts.src %>*.js'
-
-                //}
             },
             // lint JSON files
             jsonlint: {
@@ -256,17 +188,11 @@
                 appJs: {
                     files: [
                         {
-                            src: '<%= pkg.app.scripts.temp %><%= pkg.name %>.js',
-                            dest: '<%= pkg.app.scripts.dest %>app/<%= pkg.name %>.min.js'
+                            src: '<%= pkg.app.scripts.tempdirectory %><%= pkg.app.scripts.filename %>.js',
+                            dest: '<%= pkg.app.scripts.dest %><%= pkg.app.scripts.filename %>.min.js'
                         }
                     ]
                 }
-                //bootstrapPlugins: {
-                //    files: {
-                //        '<%= pkg.bootstrap.scripts.plugins.dest %>tab.min.js':
-                //        '<%= pkg.bootstrap.scripts.plugins.src %>tab.js'
-                //    }
-                //}
             },
             watch: {
                 options: {
@@ -286,15 +212,7 @@
                     files: '<%= pkg.app.styles.src %>**/*.css',
                     tasks: ['cssTasks']
                 }
-                //test: {
-                //    files: 'test.files',
-                //    tasks: ['jshint.test', 'qunit']
-                //} 
             }
-            //// Unit tests.
-            //nodeunit: {
-            //  tests: ['test/*_test.js']
-            //}
         });
 
         grunt.loadNpmTasks('grunt-contrib-clean');
@@ -305,13 +223,9 @@
         grunt.loadNpmTasks('grunt-contrib-uglify');
         grunt.loadNpmTasks('grunt-contrib-watch');
         grunt.loadNpmTasks('grunt-jsonlint');
-        //grunt.loadNpmTasks('grunt-image-embed');
-        //       
-        //grunt.loadTasks('tasks'); // load custom tasks from external .js files.
-        //grunt.registerTask('test', 'nodeunit'); // Whenever the "test" task is run, run some tests.
-        //
-        grunt.registerTask('appJsTasks', ['jsonlint', 'jshint', 'clean:js', 'copy:appJs', 'concat:appJs', 'uglify:appJs']);
-        grunt.registerTask('cssTasks', ['clean:css', 'copy:appStyles', 'copy:bootstrapStyles', 'copy:fontawesomeStyles', 'cssmin']);
-        grunt.registerTask('default', ['jsonlint', 'jshint', 'clean', 'copy', 'cssmin', 'concat', 'uglify', 'clean:temp']); /*, imageEmbed', */ // default: defines a group of tasks that will run when running Grunt without specifying a task to run.
+
+        grunt.registerTask('appJsTasks', ['jsonlint', 'jshint', 'clean:js', 'copy:appJs', 'concat:appJs', 'uglify:appJs', 'clean:tempdirectory']);
+        grunt.registerTask('cssTasks', ['clean:css', 'copy:appStyles', 'copy:bootstrapStyles', 'copy:fontawesomeStyles', 'cssmin', 'clean:tempdirectory']);
+        grunt.registerTask('default', ['jsonlint', 'jshint', 'clean', 'copy', 'cssmin', 'concat', 'uglify', 'clean:tempdirectory']); // default: defines a group of tasks that will run when running Grunt without specifying a task to run.
     };
 })();

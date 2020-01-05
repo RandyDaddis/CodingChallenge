@@ -13,7 +13,7 @@ function addEvent(element, evnt, funct) {
         return element.addEventListener(evnt, funct, false);
 }
 
-function appendAddToCartPopup() {
+function displayAddToCartPopup() {
 
     // create element
     var element = createElement();
@@ -51,7 +51,7 @@ function onAddtoCart() {
     totalItemsCount++;
     document.querySelector('.shopping-cart-item-count').textContent = totalItemsCount.toString();
     // display confirmation popup
-    appendAddToCartPopup();
+    displayAddToCartPopup();
 }
 
 function removeAddtoCartPopup() {

@@ -370,54 +370,36 @@
     /*grid-gap: 1rem; DEVNOTE: grid-gap does not currently work in Chrome or Edge browsers*/
 }
 
-.popup-overlay { 
-    visibility: hidden; /*Hides pop-up when there is no "active" class*/
-    position: absolute;
-    border: 3px solid #777;
-    border-radius: .25rem;
-    width: 75%;
-    height: 16rem;
-    left: 12.5%;
-    background: linear-gradient(to top, #2bc0ec, #1b81d7);
-    color: #ccc;
-}
-
-    .popup-overlay.active {
-        visibility: visible; /*displays pop-up when "active" class is present*/
-        text-align: center;
-        z-index: 100;
-    }
-
-    .popup-overlay popup-close-button-container {
-        flex: 0 0 10rem;
-    }
 
 .popup-content {
-    visibility: hidden; /*Hides pop-up content when there is no "active" class */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: linear-gradient(to top, #2bc0ec, #1b81d7);
+    color: #ccc;
+    font-size: 1.2rem;
+    text-align: center;
 }
-
-    .popup-content.active {
-        visibility: visible; /*Shows pop-up content when "active" class is present */
-        z-index: 101;
-    }
 
 .popup-header {
     background: linear-gradient(to top, #333, #aaa);
-    height: 5rem;
-    font-size: 1.2rem;
-    font-weight: 800;
-    padding: 1rem;
-}
-
-.popup-body {
-    text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 600;
     padding: 2rem;
 }
+
+.popup-overlay {
+    position: absolute;
+    border: 3px solid #777;
+    border-radius: .25rem;
+    width: 15rem;
+    left: 17.5%;
+}
+
+    .popup-overlay .popup-close-button-container {
+        flex: 0 0 80%;
+        padding-bottom: 1rem;
+    }
 
 .search-box {
     background-color: #fafafa;
@@ -550,9 +532,8 @@
     }
 
     .popup-overlay {
-        width: 20rem;
-        height: 15rem;
         left: 50vw;
+        margin-top: 4rem;
     }
 
     .search-box {
@@ -562,14 +543,14 @@
     .side-bar {
         width: 60%;
     }
-
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1024px) {
 
     .best-seller {
         margin: 1rem 0;
     }
+
     .container {
         padding: 0 1rem;
     }
@@ -662,7 +643,8 @@
     }
 
     .popup-overlay {
-        left: 60vw;
+        left: 74.5vw;
+        margin-top: 0;
     }
 
     .side-bar {
@@ -671,12 +653,28 @@
     }
 }
 
+@media only screen and (min-width: 1280px) {
+
+    .popup-overlay {
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+
+    .popup-overlay {
+        left: 66.5vw;
+    }
+}
+
 @media only screen and (min-width: 3840px) {
 
     .popup-overlay {
-        left: 55vw;
+        left: 58.2vw;
     }
 }
+
+/* TODO: refactor media queries for IPad Pro  */
 
 @media only screen and (min-height: 720px) and (min-width: 1280px) {
 
